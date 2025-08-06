@@ -23,7 +23,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .background-image {
@@ -42,7 +41,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: rgba(13, 17, 23, 0.8); */
     background-color: black;
     opacity: 0.8;
     z-index: -1;
@@ -68,16 +66,13 @@ body {
     padding: 10px 20px;
     margin-top: 5px;
     margin-bottom: 8px;
-    /* background: rgba(22, 27, 34, 0.95); */
-    background-color:rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(15px);
-    /* border-bottom: 1px solid rgba(48, 54, 61, 0.8); */
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255, 255, 255, .1);
     border-radius: 8px;
     flex-shrink: 0;
     height: 60px;
     min-width: 960px;
-    /* max-width: 870px; */
 }
 
 .header-left {
@@ -131,7 +126,6 @@ body {
     text-align: center;
 }
 
-
 .current-datetime {
     font-size: 12px;
     color: #7d8590;
@@ -179,16 +173,14 @@ body {
 /* 시각화 영역 */
 .visualization-container {
     padding: 12px 20px;
-    /* background: rgba(22, 27, 34, 0.7); */
-    background-color:rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(50px);
-    /* border-bottom: 1px solid rgba(48, 54, 61, 0.6); */
     flex-shrink: 0;
     display: flex;
     justify-content: center;
     height: 180px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255, 255, 255, .1);
     border-radius: 8px;
     min-width: 960px;
 }
@@ -279,19 +271,18 @@ body {
     border-color: #17f144;
 }
 
-/* 일정 개수에 따른 밝기 조절 */
 .day-cell.schedule-single {
-    background-color: rgb(0, 255, 50, 0.2); /* 100% 밝기 */
+    background-color: rgb(0, 255, 50, 0.2);
     border-color: rgb(0, 255, 50, 0.3);
 }
 
 .day-cell.schedule-double {
-    background-color: rgb(0, 255, 50, 0.5); /* 100% 밝기 */
+    background-color: rgb(0, 255, 50, 0.5);
     border-color: rgb(0, 255, 50, 0.6);
 }
 
 .day-cell.schedule-multiple {
-    background-color: rgb(0, 255, 50, 1.0); /* 100% 밝기 */
+    background-color: rgb(0, 255, 50, 1.0);
     border-color: rgb(0, 255, 50, 1.0);
 }
 
@@ -340,14 +331,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%
+    width: 100%;
 }
 
 .content-panel {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
 .content-header {
@@ -357,7 +348,7 @@ body {
     margin-bottom: 20px;
     flex-shrink: 0;
     flex-wrap: wrap;
-    width: 100%
+    width: 100%;
 }
 
 .content-title {
@@ -374,7 +365,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    width: 100%
+    width: 100%;
 }
 
 /* 출석 관련 스타일 */
@@ -394,7 +385,6 @@ body {
 
 .attendance-log-item {
     padding: 16px;
-    /* background: rgba(33, 38, 45, 0.8); */
     border: 1px solid rgba(48, 54, 61, 0.6);
     border-radius: 8px;
     backdrop-filter: blur(15px);
@@ -475,7 +465,6 @@ body {
     background: rgba(48, 54, 61, 0.8);
     transform: translateY(-1px);
 }
-
 .attendance-btn.clock-out {
     background: rgba(255, 193, 7, 0.8);
     color: #000;
@@ -530,7 +519,8 @@ body {
     color: #7d8590;
     line-height: 1.4;
 }
-/* 공통 버튼 스타일 통일 */
+
+/* 공통 버튼 스타일 */
 .primary-btn,
 .schedule-btn,
 .memo-search-btn,
@@ -643,7 +633,7 @@ body {
     flex-shrink: 0;
 }
 
-/* 필터 클리어 버튼 통일 */
+/* 필터 클리어 버튼 */
 .filter-clear-btn {
     background: #da3633cc;
     border: none;
@@ -729,7 +719,6 @@ body {
    width: 100%;
    border-collapse: collapse;
    font-family: inherit;
-   /* margin-top: 20px; */
    border-radius: 8px;
    overflow: hidden;
    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -739,7 +728,6 @@ body {
 .monthly-calendar th {
     width: 14.28%;
     padding: 6px 12px;
-    /* background: rgba(33, 38, 45, 0.8); */
     background: rgba(0, 0, 0, 0.3);
     color: #7d8590;
     font-size: 13px;
@@ -827,7 +815,7 @@ body {
     box-sizing: border-box;
 }
 
-/* 새로운 체크박스 스타일 */
+/* 체크박스 스타일 */
 .checkbox-container {
    display: flex;
    align-items: center;
@@ -849,7 +837,7 @@ body {
     background-color: rgba(33, 38, 45, 0.8);
     border: 2px solid rgba(48, 54, 61, 0.6);
     border-radius: 4px;
-    margin-right: 8px;  /* 12px에서 8px로 줄이거나 원하는 값으로 */
+    margin-right: 8px;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
@@ -968,7 +956,7 @@ body {
     color: #7d8590;
 }
 
-/* Clear 버튼 통일 */
+/* Clear 버튼 */
 .todo-clear-btn,
 .memo-clear-btn,
 .counter-clear-btn {
@@ -1003,7 +991,6 @@ body {
     flex: 1;
     overflow-y: auto;
 }
-
 .todo-item {
     display: flex;
     align-items: flex-start;
@@ -1087,7 +1074,8 @@ body {
 .todo-item:hover .todo-controls {
     opacity: 1;
 }
-/* 아이템 내부 버튼들 통일 */
+
+/* 아이템 내부 버튼들 */
 .todo-btn,
 .memo-btn,
 .counter-btn {
@@ -1301,7 +1289,6 @@ body {
 }
 
 /* Day Counter 스타일 */
-
 .counter-list {
     display: flex;
     flex-direction: column;
@@ -1415,7 +1402,7 @@ body {
     opacity: 1;
 }
 
-/* 모달 스타일 */
+/* 모달 스타일 - 모바일 최적화 */
 .modal {
     position: fixed;
     top: 0;
@@ -1425,13 +1412,14 @@ body {
     background: rgba(0, 0, 0, 0.7);
     z-index: 2000;
     display: none;
+    padding: 0;
 }
 
 .modal-content {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -25%);
     background: rgba(22, 27, 34, 0.95);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(48, 54, 61, 0.8);
@@ -1440,6 +1428,8 @@ body {
     width: 90%;
     max-width: 500px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    max-height: 75vh;
+    overflow-y: auto;
 }
 
 .modal-content.large {
@@ -1448,6 +1438,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    top: 15%;
+    transform: translate(-50%, -15%);
 }
 
 .modal-content h3 {
@@ -1500,7 +1492,7 @@ body {
     color: #c9d1d9;
     padding: 12px 16px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     box-sizing: border-box;
     font-family: inherit;
     transition: border-color 0.2s ease;
@@ -1533,22 +1525,25 @@ body {
     gap: 12px;
     justify-content: flex-end;
     margin-top: 24px;
+    flex-wrap: wrap;
 }
 
-/* 모달 버튼들 통일 */
+/* 모달 버튼들 - 모바일 최적화 */
 .modal-btn {
-    min-height: 36px;
-    padding: 8px 20px;
+    min-height: 44px;
+    padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    flex: 1;
+    min-width: 100px;
 }
 
 .modal-btn.confirm {
@@ -1574,24 +1569,23 @@ body {
 .modal-btn.edit {
     background: rgba(88, 166, 255, 0.8);
     color: white;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .modal-btn.edit:hover {
     background: rgba(31, 111, 235, 0.8);
     transform: translateY(-1px);
 }
-
-/* 메모 모달 특별 스타일 */
+/* 메모 모달 특별 스타일 - 모바일 최적화 */
 .memo-modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 28px;
+    padding: 12px 20px;
     border: 1px solid rgba(33, 38, 45, 0.8);
     border-radius: 8px;
     background: rgba(33, 38, 45, 0.3);
-    
+    gap: 12px;
 }
 
 .memo-title-input {
@@ -1602,13 +1596,13 @@ body {
     font-size: 18px;
     font-weight: bold;
     padding: 0;
-    margin-right: 20px;
+    font-size: 16px;
 }
 
 .memo-title-input:focus {
     outline: none;
     background: rgba(33, 38, 45, 0.5);
-    padding: 8px 0px;
+    padding: 8px;
     border-radius: 6px;
 }
 
@@ -1618,7 +1612,8 @@ body {
 
 .memo-modal-controls {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .memo-modal-body {
@@ -1626,8 +1621,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 12px 0px;
-    height: 500px;
+    padding: 12px 0;
+    height: 400px;
 }
 
 .memo-content-input {
@@ -1637,7 +1632,7 @@ body {
     color: #c9d1d9;
     padding: 16px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     resize: none;
     white-space: pre-wrap;
     line-height: 1.6;
@@ -1661,14 +1656,16 @@ body {
 }
 
 .memo-modal-footer {
-    padding: 10px 28px;
+    padding: 12px 20px;
     border: 1px solid rgba(33, 38, 45, 0.8);
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgba(33, 38, 45, 0.3);
+    gap: 12px;
 }
+
 .memo-timestamp {
     font-size: 11px;
     color: #7d8590;
@@ -1681,6 +1678,7 @@ body {
     display: flex;
     gap: 8px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .schedule-search-container input {
@@ -1689,8 +1687,9 @@ body {
     color: #c9d1d9;
     padding: 8px 12px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 14px;
     width: 200px;
+    min-width: 150px;
 }
 
 .schedule-search-container input:focus {
@@ -1708,6 +1707,7 @@ body {
     font-size: 12px;
     font-weight: 500;
     transition: all 0.2s ease;
+    min-height: 36px;
 }
 
 .schedule-search-container button:hover {
@@ -1770,12 +1770,13 @@ body {
     background: #da3633cc;
     border: none;
     color: white;
-    padding: 6px 12px;
+    padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
     font-weight: 500;
     transition: all 0.2s ease;
+    min-height: 32px;
 }
 
 .schedule-edit-btn {
@@ -1813,7 +1814,6 @@ body {
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    display: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -1851,25 +1851,25 @@ body {
 
 /* 로딩화면 */
 #splash {
-  position: fixed;
-  inset: 0;
-  background: rgb(23, 33, 40);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 1;
-  transition: opacity 1s ease;
+    position: fixed;
+    inset: 0;
+    background: rgb(23, 33, 40);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 #splash.fade-out {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #splash-logo {
-  width: 150px; /* 원하는 크기 */
-  height: auto;
+    width: 150px;
+    height: auto;
 }
 
 /* 애니메이션 */
@@ -1888,12 +1888,10 @@ body {
     animation: fadeIn 0.3s ease-out;
 }
 
-/* 토스트 알림 스타일 - 기존 styles.css 끝에 추가 */
-
-/* 토스트 알림 */
+/* 토스트 알림 스타일 - 모바일 최적화 */
 .toast-notification {
     position: fixed;
-    top: 20px;
+    top: 80px;
     left: 50%;
     transform: translateX(-50%) translateY(-100px);
     background: rgba(22, 27, 34, 0.95);
@@ -1909,11 +1907,11 @@ body {
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
-    max-width: 400px;
+    max-width: 90%;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.4;
 }
 
 .toast-notification.show {
@@ -1942,9 +1940,7 @@ body {
     background: rgba(88, 166, 255, 0.1);
 }
 
-
-
-/* 반응형 */
+/* 반응형 - 태블릿 */
 @media (max-width: 960px) {
     .header {
         flex-direction: column;
@@ -1954,14 +1950,18 @@ body {
         margin: 0;
         width: 100%;
         border-radius: 0px;
+        min-width: unset;
     }
+    
     .header-center,
     .header-right {
         flex: none;
     }
-    .header-left{
+    
+    .header-left {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     
     .header-center {
@@ -1990,26 +1990,37 @@ body {
     .modal-content {
         width: 95%;
         padding: 20px;
+        top: 20%;
+        transform: translate(-50%, -20%);
+        max-height: 70vh;
+    }
+    
+    .modal-content.large {
+        top: 10%;
+        transform: translate(-50%, -10%);
+        max-height: 85vh;
     }
     
     .memo-controls {
         align-items: stretch;
         gap: 12px;
+        flex-direction: column;
     }
     
     .memo-search-container {
         gap: 12px;
+        max-width: none;
     }
     
-    .visualization-container{
+    .visualization-container {
         display: none;
     }
     
     /* 출석 관련 반응형 */
     .attendance-controls {
-        flex-direction: column;
-        gap: 8px;
         flex-direction: row;
+        gap: 8px;
+        flex-wrap: wrap;
     }
     
     .attendance-log-item {
@@ -2024,8 +2035,9 @@ body {
     }
     
     .attendance-btn {
-        min-height: 36px;
-        font-size: 12px;
+        min-height: 40px;
+        font-size: 13px;
+        padding: 8px 12px;
     }
     
     /* 투두 편집 반응형 */
@@ -2041,28 +2053,12 @@ body {
     }
     
     .todo-btn {
-        min-height: 36px;
-        font-size: 12px;
+        min-height: 40px;
+        font-size: 13px;
         padding: 8px 12px;
     }
-}
-/*
-@media (max-width: 480px) {
-    .visualization-container {
-        padding: 8px 10px;
-        height: 300px;
-    }
     
-    .day-cell {
-        width: 12px;
-        height: 12px;
-    }
-    
-    .weekday-label {
-        width: 12px;
-        height: 12px;
-    }
-    
+    /* 메모 및 카운터 아이템 */
     .memo-item,
     .counter-item {
         flex-direction: column;
@@ -2076,73 +2072,184 @@ body {
         align-self: flex-end;
     }
     
-    .content-right{
-        margin-left: auto;
+    .memo-btn,
+    .counter-btn {
+        min-height: 40px;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    .toast-notification {
+        top: 100px;
+        font-size: 13px;
+        padding: 14px 20px;
+    }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .content-title {
+        font-size: 20px;
     }
     
     .modal-content {
         width: 98%;
         padding: 16px;
         margin: 10px;
+        top: 15%;
+        transform: translate(-50%, -15%);
+        max-height: 80vh;
     }
     
     .modal-content.large {
-        max-height: 90%;
+        max-height: 90vh;
+        top: 5%;
+        transform: translate(-50%, -5%);
     }
     
     .memo-modal-body {
         height: 300px;
     }
-
+    
+    /* 폼 요소들 모바일 최적화 */
     .attendance-memo-input {
         font-size: 16px;
     }
-
+    
     .memo-search-input,
     .todo-input {
-        font-size: 16px; 
+        font-size: 16px;
     }
     
     .form-group input,
     .form-group textarea {
-        font-size: 16px; 
+        font-size: 16px;
     }
     
+    /* 버튼들 터치 최적화 */
     .attendance-btn,
     .todo-btn,
     .memo-btn,
     .counter-btn {
-        min-height: 44px; 
+        min-height: 44px;
         font-size: 14px;
-        padding: 8px 16px;
+        padding: 10px 16px;
     }
     
     .modal-btn {
-        min-height: 44px;
-        font-size: 14px;
-        padding: 12px 20px;
+        min-height: 48px;
+        font-size: 16px;
+        padding: 14px 20px;
     }
     
     .primary-btn,
     .schedule-btn {
         min-height: 44px;
         font-size: 14px;
+        padding: 10px 16px;
     }
+    
+    .year-btn,
+    .calendar-nav-btn {
+        min-height: 44px;
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+    
+    .mode-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+    
     .toast-notification {
-        max-width: 90%;
-        font-size: 13px;
-        padding: 12px 20px;
-        white-space: normal;
-        word-wrap: break-word;
+        top: 80px;
+        max-width: 95%;
+        font-size: 14px;
+        padding: 16px 20px;
+    }
+    
+    /* 스케줄 검색 모바일 최적화 */
+    .schedule-search-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .schedule-search-container input {
+        width: 100%;
+    }
+    
+    .schedule-search-container button {
+        min-height: 44px;
+        font-size: 14px;
+    }
+    
+    /* 일정 아이템 모바일 최적화 */
+    .schedule-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .schedule-item-controls {
+        opacity: 1;
+        align-self: flex-end;
+        gap: 12px;
+    }
+    
+    .schedule-edit-btn,
+    .schedule-delete-btn {
+        min-height: 44px;
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+    
+    /* 모달 헤더 모바일 최적화 */
+    .modal-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .modal-btn {
+        flex: none;
+    }
+    
+    /* 메모 모달 모바일 최적화 */
+    .memo-modal-header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+    
+    .memo-modal-controls {
+        align-self: flex-end;
+    }
+    
+    .memo-modal-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
     }
 }
-*/
+
 /* 터치 디바이스 최적화 */
 @media (hover: none) and (pointer: coarse) {
     .todo-controls,
     .memo-controls,
     .counter-item-controls,
-    .attendance-controls {
+    .attendance-controls,
+    .schedule-item-controls {
         opacity: 1 !important;
     }
     
@@ -2152,5 +2259,23 @@ body {
     
     .day-cell:active {
         transform: scale(1.1);
+    }
+    
+    /* 호버 효과 제거 */
+    .todo-item:hover,
+    .memo-item:hover,
+    .counter-item:hover,
+    .attendance-log-item:hover,
+    .schedule-item:hover {
+        transform: none;
+    }
+    
+    /* 활성화 효과로 대체 */
+    .todo-item:active,
+    .memo-item:active,
+    .counter-item:active,
+    .attendance-log-item:active,
+    .schedule-item:active {
+        transform: scale(0.98);
     }
 }
