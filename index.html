@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="splash">
+        <img id="splash-logo" src="src/logo.png" alt="Logo">
+    </div>
+    <!-- 배경 이미지와 오버레이 -->
+    <img class="background-image" id="backgroundImage" style="display: none;">
+    <div class="background-overlay"></div>
+
+    <div class="app-container">
+        <!-- 상단 헤더 -->
+        <div class="header">
+            <div class="header-left">
+                <div class="year-nav">
+                    <button class="year-btn" id="prevYear">◀</button>
+                    <span class="current-year" id="currentYear">2025</span>
+                    <button class="year-btn" id="nextYear">▶</button>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="current-datetime" id="currentDateTime"></div>
+                <div class="stats-info">
+                    <span>Total Attendance Days: <span id="totalAttendance">0</span></span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="attendance" title="Attendance">👤</button>
+                    <button class="mode-btn" data-mode="schedule" title="Schedule">📅</button>
+                    <button class="mode-btn" data-mode="todo" title="Todo">✅</button>
+                    <button class="mode-btn" data-mode="memo" title="Memo">📝</button>
+                    <button class="mode-btn" data-mode="counter" title="Day Counter">⏰</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 시각화 영역 -->
+        <div class="visualization-container">
+            <div class="calendar-with-labels">
+                <div class="weekday-labels">
+                    <div class="weekday-label">S</div>
+                    <div class="weekday-label">M</div>
+                    <div class="weekday-label">T</div>
+                    <div class="weekday-label">W</div>
+                    <div class="weekday-label">T</div>
+                    <div class="weekday-label">F</div>
+                    <div class="weekday-label">S</div>
+                </div>
+                <div class="calendar" id="calendar"></div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <!-- 출석 로그 콘텐츠 (기본 표시) -->
+            <div id="attendanceContent" class="content-panel">
+                <div class="content-header">
+                    <h2 class="content-title">Attendance Log</h2>
+                    <div class="attendance-controls">
+                        <button class="primary-btn" id="attendBtn">Attend</button>
+                        <button class="primary-btn danger" id="clearAttendanceBtn">Clear All</button>
+                    </div>
+                </div>
+                <div class="content-body">
+                    <div class="attendance-log" id="attendanceLog"></div>
+                </div>
+            </div>
+
+            <!-- 일정 콘텐츠 -->
+            <div id="scheduleContent" class="content-panel" style="display: none;">
+                <div class="content-header">
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prevMonth">◀</button>
+                        <span class="calendar-month-year" id="currentMonthYear">January 2025</span>
+                        <button class="calendar-nav-btn" id="nextMonth">▶</button>
+                    </div>
+                    <div class="schedule-controls">
+                        <button class="schedule-btn" id="viewAllSchedulesBtn">View All</button>
+                        <button class="schedule-btn danger" id="clearSchedulesBtn">Clear All</button>
+                    </div>
+                </div>
+                <div class="filter-display" id="scheduleFilterDisplay" style="display: none;">
+                    <span>Filter Mode: <span id="scheduleFilterText"></span></span>
+                    <button class="filter-clear-btn" id="scheduleFilterClear">Clear Filter</button>
+                </div>
+                <div class="content-body">
+                    <table class="monthly-calendar">
+                        <thead>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="monthlyCalendarBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 투두리스트 콘텐츠 -->
+            <div id="todoContent" class="content-panel" style="display: none;">
+                <div class="content-header">
+                    <h2 class="content-title">Todo List</h2>
+                </div>
+                <div class="todo-tabs">
+                    <div class="todo-tab active" id="todoTabActive">To Do</div>
+                    <div class="todo-tab" id="todoTabCompleted">Completed</div>
+                </div>
+                <div class="filter-display" id="todoFilterDisplay" style="display: none;">
+                    <span>Filter Mode: <span id="todoFilterText"></span></span>
+                    <button class="filter-clear-btn" id="todoFilterClear">Clear Filter</button>
+                </div>
+                <div class="content-body">
+                    <div id="todoTabContent">
+                        <div class="todo-input-container">
+                            <input type="text" class="todo-input" id="todoInput" placeholder="Enter a new task">
+                            <button class="todo-add-btn" id="todoAddBtn">Create</button>
+                            <button class="todo-clear-btn" id="todoClearBtn" style="display: none;">Clear All</button>
+                        </div>
+                        <div class="todo-list" id="todoList"></div>
+                    </div>
+                    <div id="completedTabContent" style="display: none;">
+                        <div class="content-header">
+                            <div></div>
+                            <button class="todo-clear-btn" id="completedClearBtn" style="display: none;">Clear
+                                All</button>
+                        </div>
+                        <div class="todo-list" id="completedList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 메모 콘텐츠 -->
+            <div id="memoContent" class="content-panel" style="display: none;">
+                <div class="content-header">
+                    <h2 class="content-title">Memo</h2>
+                    <div class="memo-controls">
+                        <div class="memo-search-container">
+                            <input type="text" class="memo-search-input" id="memoSearchInput"
+                                placeholder="Search memos...">
+                            <button class="memo-search-btn" id="memoSearchBtn">Search</button>
+                            <button class="memo-clear-search-btn" id="memoClearSearchBtn"
+                                style="display: none;">Clear</button>
+                        </div>
+                        <button class="primary-btn" id="memoCreateBtn">Create</button>
+                        <button class="memo-clear-btn" id="memoClearBtn" style="display: none;">Clear All</button>
+                    </div>
+                </div>
+                <div class="filter-display" id="memoFilterDisplay" style="display: none;">
+                    <span>Filter Mode: <span id="memoFilterText"></span></span>
+                    <button class="filter-clear-btn" id="memoFilterClear">Clear Filter</button>
+                </div>
+                <div class="content-body">
+                    <div class="memo-list" id="memoList"></div>
+                </div>
+            </div>
+
+            <!-- Day Counter 콘텐츠 -->
+            <div id="counterContent" class="content-panel" style="display: none;">
+                <div class="content-header">
+                    <h2 class="content-title">Day Counter</h2>
+                    <div class="schedule-controls">
+                        <button class="primary-btn" id="counterCreateBtn">Create</button>
+                        <button class="counter-clear-btn" id="counterClearBtn" style="display: none;">Clear All</button>
+                    </div>
+                </div>
+                <div class="filter-display" id="counterFilterDisplay" style="display: none;">
+                    <span>Filter Mode: <span id="counterFilterText"></span></span>
+                    <button class="filter-clear-btn" id="counterFilterClear">Clear Filter</button>
+                </div>
+                <div class="content-body">
+                    <div class="counter-list" id="counterList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 일정 생성 모달 -->
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <h3 id="scheduleModalTitle">Add Schedule</h3>
+            <div class="form-group">
+                <label for="scheduleText">Schedule:</label>
+                <input id="scheduleText" type="text" placeholder="Enter schedule title">
+            </div>
+            <div class="form-group">
+                <label for="scheduleEndDate">End Date:</label>
+                <input id="scheduleEndDate" type="date">
+            </div>
+            <div class="form-group">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="scheduleSkipWeekends">
+                    <span class="checkmark"></span>
+                    Skip Weekends
+                </label>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="scheduleModalCancel">Cancel</button>
+                <button class="modal-btn confirm" id="scheduleModalConfirm">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메모 모달 -->
+    <div class="modal" id="memoModal">
+        <div class="modal-content">
+            <div class="memo-modal-header">
+                <input type="text" class="memo-title-input" id="memoTitleInput" placeholder="Memo Title">
+                <div class="memo-modal-controls">
+                    <button class="modal-btn edit" id="memoModalEdit" style="display: none;">Edit</button>
+                    <button class="modal-btn cancel" id="memoModalClose">Close</button>
+                </div>
+            </div>
+            <div class="memo-modal-body">
+                <textarea class="memo-content-input" id="memoContentInput" placeholder="Enter memo content..."
+                    readonly></textarea>
+            </div>
+            <div class="memo-modal-footer">
+                <div class="memo-timestamp" id="memoTimestamp"></div>
+                <button class="modal-btn confirm" id="memoModalConfirm">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day Counter 모달 -->
+    <div class="modal" id="counterModal">
+        <div class="modal-content">
+            <h3 id="counterModalTitle">Create Day Counter</h3>
+            <div class="form-group">
+                <label for="counterTitle">Title:</label>
+                <input type="text" id="counterTitle" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+                <label for="counterDate">Target Date:</label>
+                <input type="date" id="counterDate">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="counterModalCancel">Cancel</button>
+                <button class="modal-btn confirm" id="counterModalConfirm">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 전체 일정 보기 모달 -->
+    <div class="modal" id="allSchedulesModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>All Schedules</h3>
+                <div class="schedule-search-container">
+                    <input type="text" id="scheduleSearchInput" placeholder="Search schedules...">
+                    <button id="scheduleSearchBtn">Search</button>
+                </div>
+                <button class="modal-btn cancel" id="allSchedulesClose">Close</button>
+            </div>
+            <div class="modal-body">
+                <div class="schedule-list" id="allSchedulesList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 확인 모달 -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h3 id="confirmModalTitle">Confirm Action</h3>
+            <p id="confirmModalMessage">Are you sure you want to proceed?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="confirmModalCancel">Cancel</button>
+                <button class="modal-btn confirm" id="confirmModalConfirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 출석 편집 모달 -->
+    <div class="modal" id="attendanceEditModal">
+        <div class="modal-content">
+            <h3>Edit Attendance</h3>
+            <div class="form-group">
+                <label for="attendanceEditMemo">Memo:</label>
+                <input type="text" id="attendanceEditMemo" placeholder="Enter memo">
+            </div>
+            <div class="form-group">
+                <label for="attendanceEditCheckedIn">Checked In:</label>
+                <input type="datetime-local" id="attendanceEditCheckedIn">
+            </div>
+            <div class="form-group">
+                <label for="attendanceEditClockedOut">Clocked Out:</label>
+                <input type="datetime-local" id="attendanceEditClockedOut">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="attendanceEditCancel">Cancel</button>
+                <button class="modal-btn confirm" id="attendanceEditConfirm">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 출석 로그 보기 모달 수정 - Delete 버튼 추가 -->
+    <!-- 기존의 attendanceLogModal을 다음으로 교체 -->
+    <div class="modal" id="attendanceLogModal">
+        <div class="modal-content">
+            <h3 id="attendanceLogModalTitle">Attendance Log</h3>
+            <div class="modal-body">
+                <div id="attendanceLogModalContent"></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="attendanceLogModalDelete">Delete</button>
+                <button class="modal-btn confirm" id="attendanceLogModalClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 툴팁 -->
+    <div class="tooltip" id="tooltip" style="display: none;"></div>
+    <!-- 일정 편집 모달 -->
+    <div class="modal" id="scheduleEditModal">
+        <div class="modal-content">
+            <h3>Edit Schedule</h3>
+            <div class="form-group">
+                <label for="scheduleEditTitle">Schedule:</label>
+                <textarea id="scheduleEditTitle" placeholder="Enter schedule content"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="scheduleEditStartDate">Start Date:</label>
+                <input type="date" id="scheduleEditStartDate">
+            </div>
+            <div class="form-group">
+                <label for="scheduleEditEndDate">End Date:</label>
+                <input type="date" id="scheduleEditEndDate">
+            </div>
+            <div class="form-group">
+                <label class="checkbox-container">
+                    <span class="checkmark"></span>
+                    <input type="checkbox" id="scheduleSkipWeekends">
+                    Skip Weekends
+                </label>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="scheduleEditCancel">Cancel</button>
+                <button class="modal-btn confirm" id="scheduleEditConfirm">Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
